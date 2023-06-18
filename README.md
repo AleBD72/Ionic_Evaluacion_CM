@@ -1,1 +1,1 @@
-# Detalles de la Apliacacion Creada
+# Detalles de la Aplicación Creada
