@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Evaluación Fotografía y Geolocalización
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button (click)="getCurrentCoordinates()" expand="block">
+      <ion-icon slot="start" name="navigate-circle"></ion-icon>
+      Obtener Ubicación
+
+    </ion-button>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Coordenadas Capturadas </ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label> Latitud </ion-label>
+        <ion-badge color="danger" slot="end">{{latitude}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label> Longitud </ion-label>
+        <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="captureImage()">
+      Click Picture
+   </ion-button>
+   <img [src]="clickedImage" />
+   <ion-button (click)="takeSnap()">
+    Tomar Foto
+  </ion-button>
+  <img #waterMarkedImage>
+  </div>
+</ion-content>
+
+<ion-footer translucent="true">
+  <ion-toolbar>
+    <ion-label> Proyecto creado por Camila Mier</ion-label>
+  </ion-toolbar>
+</ion-footer>

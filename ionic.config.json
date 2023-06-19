@@ -1,0 +1,7 @@
+{
+  "name": "firebase-photo-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
