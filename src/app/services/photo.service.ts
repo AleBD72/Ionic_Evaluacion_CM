@@ -19,7 +19,7 @@ export class PhotoService {
   private PHOTO_STORAGE: string = 'photos';
   private platform: Platform;
 
-  constructor(platform: Platform, private storage:Storage, private afDB:AngularFireDatabase) {
+  constructor(platform: Platform) {
     this.platform = platform;
   }
 
@@ -40,39 +40,11 @@ export class PhotoService {
       value: JSON.stringify(this.photos),
     });
 
-    //Para guardar en storage
-    const fileName = new Date().getTime() + '.jpg';
-
-    const path = 'Fotos/' + fileName;
-    const blob = await this.makeBlob(capturedPhoto.webPath+ ''); // Convertir la imagen en un Blob
-
-    this.storage['upload'](path, blob);
-    
-    const position = await Geolocation.getCurrentPosition();
-    
-    //la data de geolocation
-    const data = {
-      photo: capturedPhoto.webPath,
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    };
-
-    
-    //Para guardar la geolocation con la imagen
-    this.afDB.list('geolocation').push(data)
-
     /*this.photos.unshift({
       filepath: "soon...",
       webviewPath: capturedPhoto.webPath
     });*/
   }
-
-  //hace una peticion y devuelve el string de la foto para poder almacenarla
-  private async makeBlob(capturedPhotoWebPath: string): Promise<Blob> {
-    const response = await fetch(capturedPhotoWebPath);
-    const blob = await response.blob();
-    return blob;
-  }
   
   private async savePicture(photo: Photo) { 
     
