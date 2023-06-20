@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'firebase-photo-app',
+  appName: 'photoEvaluation',
   webDir: 'www',
   server: {
     androidScheme: 'https'
